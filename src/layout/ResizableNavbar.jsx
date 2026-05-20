@@ -1,5 +1,5 @@
 "use client";
-
+import ShinyText from "../layout/ShinyText";
 import React, { useRef, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "../lib/utils";
@@ -56,7 +56,7 @@ export const NavBody = ({ children, className, visible }) => {
       transition={{ type: "spring", stiffness: 200, damping: 50 }}
       style={{ minWidth: "800px" }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl items-center justify-between rounded-full px-4 py-1 lg:flex",
+        "relative z-60 mx-auto hidden w-full max-w-7xl items-center justify-between rounded-full px-4 py-1 lg:flex",
         visible ? "bg-primaryLinear" : "bg-bg_light_primary",
         className,
       )}
@@ -140,7 +140,7 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }) => {
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 z-[999] backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-999 backdrop-blur-sm lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -150,7 +150,7 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }) => {
           {/* Fullscreen Menu */}
           <motion.div
             className={cn(
-              "fixed inset-0 z-[1000] flex h-screen w-screen flex-col bg-gray-50 lg:hidden",
+              "fixed inset-0 z-1000 flex h-screen w-screen flex-col bg-gray-50 lg:hidden",
               className,
             )}
             initial={{ x: "-100%" }}
@@ -161,7 +161,7 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="fixed right-4 top-4 z-[1100] rounded-xl bg-primaryLinear p-2.5 hover:bg-teal-500/30"
+              className="fixed right-4 top-4 z-1100 rounded-xl bg-primaryLinear p-2.5 hover:bg-teal-500/30"
             >
               <IconX className="h-6 w-6 text-teal-700" />
             </button>
@@ -170,9 +170,35 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }) => {
             <div className="relative z-10 flex items-center gap-3 border-b bg-white/80 p-6 backdrop-blur">
               {/* Logo */}
               <div className="flex items-center gap-2">
-                <span className="font-bold text-xl tracking-tight">UN</span>
+                <span className="font-bold text-xl tracking-tight">
+                  <ShinyText
+                    text="UN"
+                    speed={2}
+                    delay={0}
+                    color="#000000"
+                    shineColor="#ffffff"
+                    spread={120}
+                    direction="left"
+                    yoyo={false}
+                    pauseOnHover={false}
+                    disabled={false}
+                  />
+                </span>
                 <div className="w-0.5 h-6 bg-[#FF0000]"></div>
-                <span className="font-bold text-xl tracking-tight">REEL</span>
+                <span className="font-bold text-xl tracking-tight">
+                  <ShinyText
+                    text="REEL"
+                    speed={2}
+                    delay={0}
+                    color="#000000"
+                    shineColor="#ffffff"
+                    spread={120}
+                    direction="left"
+                    yoyo={false}
+                    pauseOnHover={false}
+                    disabled={false}
+                  />
+                </span>
               </div>
             </div>
 
@@ -212,9 +238,35 @@ export const NavbarLogo = () => {
     <a href="#" className="flex items-center gap-2">
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <span className="font-bold text-xl tracking-tight">UN</span>
+        <span className="font-bold text-xl tracking-tight">
+          <ShinyText
+            text="UN"
+            speed={2}
+            delay={0}
+            color="#000000"
+            shineColor="#ffffff"
+            spread={120}
+            direction="left"
+            yoyo={false}
+            pauseOnHover={false}
+            disabled={false}
+          />
+        </span>
         <div className="w-0.5 h-6 bg-[#FF0000]"></div>
-        <span className="font-bold text-xl tracking-tight">REEL</span>
+        <span className="font-bold text-xl tracking-tight">
+          <ShinyText
+            text="REEL"
+            speed={2}
+            delay={0}
+            color="#000000"
+            shineColor="#ffffff"
+            spread={120}
+            direction="left"
+            yoyo={false}
+            pauseOnHover={false}
+            disabled={false}
+          />
+        </span>
       </div>
     </a>
   );
