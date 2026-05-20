@@ -1,5 +1,4 @@
 import { Target, Users, Award, Zap } from "lucide-react";
-// import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const values = [
   {

@@ -1,18 +1,35 @@
 import { ArrowRight, Play } from "lucide-react";
+import { LightRays } from "../layout/Lightrays";
+import Antigravity from "../layout/Antigravity";
+import { Button } from "../layout/MovingBorder";
+import ShinyText from "../layout/ShinyText";
 
 export function Hero() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center pt-16 bg-linear-to-br from-white via-gray-50 to-white"
     >
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Antigravity
+          count={300}
+          magnetRadius={6}
+          ringRadius={7}
+          waveSpeed={0.4}
+          waveAmplitude={1}
+          particleSize={1.5}
+          lerpSpeed={0.05}
+          color="rgba(255, 0, 0, 1)"
+          autoAnimate
+          particleVariance={1}
+          rotationSpeed={0}
+          depthFactor={1}
+          pulseSpeed={3}
+          particleShape="capsule"
+          fieldStrength={10}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
@@ -35,18 +52,25 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={scrollToContact}
-                className="group bg-[#FF0000] text-white px-8 py-4 rounded-md hover:bg-[#cc0000] transition-all flex items-center justify-center gap-2"
-              >
-                Start Your Project
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <a href="">
+                <Button
+                  borderRadius="1.75rem"
+                  className="bg-white dark:bg-transparent text-black dark:text-black border-neutral-200 flex items-center gap-2"
+                >
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Start Your Project
+                </Button>
+              </a>
 
-              <button className="group border-2 border-black px-8 py-4 rounded-md hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2">
-                <Play className="w-5 h-5" />
-                Watch Showreel
-              </button>
+              <a href="">
+                <Button
+                  borderRadius="1.75rem"
+                  className="bg-white dark:bg-transparent text-black dark:text-black border-neutral-200 flex items-center gap-2"
+                >
+                  <Play className="w-5 h-5" />
+                  Watch Showreel
+                </Button>
+              </a>
             </div>
 
             {/* Stats */}
@@ -72,37 +96,107 @@ export function Hero() {
 
           {/* Right Column - Visual Element */}
           <div className="relative">
-            <div className="relative aspect-square rounded-2xl bg-linear-to-br from-black to-gray-800 p-8 flex items-center justify-center">
-              <div className="absolute inset-0 bg-[#FF0000]/10 rounded-2xl"></div>
+            <div className="relative h-125 w-full overflow-hidden aspect-square rounded-2xl  p-8 flex items-center justify-center">
               <div className="relative z-10 text-center space-y-4">
                 <div className="flex items-center justify-center gap-2 mb-8">
-                  <span className="text-white font-bold text-4xl">UN</span>
+                  <span className="text-white font-bold text-4xl">
+                    <ShinyText
+                      text="UN"
+                      speed={2}
+                      delay={0}
+                      color="#ffffff"
+                      shineColor="#ff0000"
+                      spread={120}
+                      direction="left"
+                      yoyo={false}
+                      pauseOnHover={false}
+                      disabled={false}
+                    />
+                  </span>
                   <div className="w-1 h-12 bg-[#FF0000]"></div>
-                  <span className="text-white font-bold text-4xl">REEL</span>
+                  <span className="text-white font-bold text-4xl">
+                    <ShinyText
+                      text="REEL"
+                      speed={2}
+                      delay={0}
+                      color="#ffffff"
+                      shineColor="#ff0000"
+                      spread={120}
+                      direction="left"
+                      yoyo={false}
+                      pauseOnHover={false}
+                      disabled={false}
+                    />
+                  </span>
                 </div>
-                <div className="grid grid-cols-2 gap-4 text-white">
+                <div className="grid grid-cols-2 gap-4 text-black">
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                     <div className="text-xs uppercase tracking-wide mb-2">
-                      Videography
+                      <ShinyText
+                        text="Videography"
+                        speed={2}
+                        delay={0}
+                        color="#000000"
+                        shineColor="#ffffff"
+                        spread={120}
+                        direction="left"
+                        yoyo={false}
+                        pauseOnHover={false}
+                        disabled={false}
+                      />
                     </div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                     <div className="text-xs uppercase tracking-wide mb-2">
-                      Photography
+                      <ShinyText
+                        text=" Photography"
+                        speed={2}
+                        delay={0}
+                        color="#000000"
+                        shineColor="#ffffff"
+                        spread={120}
+                        direction="left"
+                        yoyo={false}
+                        pauseOnHover={false}
+                        disabled={false}
+                      />
                     </div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                     <div className="text-xs uppercase tracking-wide mb-2">
-                      Marketing
+                      <ShinyText
+                        text=" Marketing"
+                        speed={2}
+                        delay={0}
+                        color="#000000"
+                        shineColor="#ffffff"
+                        spread={120}
+                        direction="left"
+                        yoyo={false}
+                        pauseOnHover={false}
+                        disabled={false}
+                      />
                     </div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
                     <div className="text-xs uppercase tracking-wide mb-2">
-                      Consultancy
+                      <ShinyText
+                        text=" Consultancy"
+                        speed={2}
+                        delay={0}
+                        color="#000000"
+                        shineColor="#ffffff"
+                        spread={120}
+                        direction="left"
+                        yoyo={false}
+                        pauseOnHover={false}
+                        disabled={false}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
+              <LightRays />
             </div>
 
             {/* Decorative elements */}
