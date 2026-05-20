@@ -1,4 +1,5 @@
 import { Target, Users, Award, Zap } from "lucide-react";
+import Cheers from "../assets/Cheers.mp4";
 
 const values = [
   {
@@ -35,9 +36,11 @@ export function About() {
           {/* Left Column - Image */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
-                alt="Creative team collaboration"
+              <video
+                src={Cheers}
+                autoPlay
+                muted
+                loop
                 className="w-full h-125 object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent"></div>
