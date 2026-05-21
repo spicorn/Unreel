@@ -8,7 +8,7 @@ import {
   Palette,
   Smartphone,
 } from "lucide-react";
-// import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { motion } from "motion/react";
 
 const services = [
   {
@@ -78,79 +78,151 @@ const services = [
 ];
 
 export function Services() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-12 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-4 py-1.5 bg-[#FF0000]/10 rounded-full mb-4">
-            <span className="text-[#FF0000] text-sm font-medium">
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ margin: "-100px" }}
+        >
+          <motion.div className="inline-block px-4 py-1.5 bg-[#FF0000]/10 rounded-full mb-4" whileHover={{ scale: 1.05 }}>
+            <span className="text-[#FF0000] text-xs md:text-sm font-medium">
               What We Do
             </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{}}
+          >
             End-to-End Marketing Solutions
-          </h2>
-          <p className="text-lg text-gray-600">
+          </motion.h2>
+          <motion.p
+            className="text-base md:text-lg text-gray-600"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            viewport={{}}
+          >
             From creative conception to technical execution, we deliver
             everything you need to grow your brand and increase conversions.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Services Grid with Images */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-100px" }}
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="group relative overflow-hidden rounded-2xl border border-black/10 hover:border-[#FF0000] hover:shadow-2xl transition-all duration-500 bg-white"
+              variants={itemVariants}
+              whileHover={{ y: -8 }}
             >
               {/* Image Background */}
-              <div className="relative h-48 overflow-hidden">
-                <img
+              <div className="relative h-40 md:h-48 overflow-hidden">
+                <motion.img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
 
                 {/* Icon */}
-                <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-[#FF0000] transition-colors">
+                <motion.div
+                  className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-[#FF0000] transition-colors"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                >
                   <service.icon className="w-6 h-6 text-white" />
-                </div>
+                </motion.div>
 
                 {/* Title on Image */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-lg font-bold text-white mb-1">
+                  <motion.h3
+                    className="text-base md:text-lg font-bold text-white mb-1"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
                     {service.title}
-                  </h3>
+                  </motion.h3>
                 </div>
               </div>
 
               {/* Description */}
-              <div className="p-6">
-                <p className="text-sm text-gray-600 leading-relaxed">
+              <div className="p-4 md:p-6">
+                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
               {/* Hover Effect Line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FF0000] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            </div>
+              <motion.div
+                className="absolute bottom-0 left-0 right-0 h-1 bg-[#FF0000]"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.5 }}
+                style={{ originX: 0 }}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center bg-linear-to-br from-gray-50 to-white rounded-2xl p-12 border border-black/5">
-          <h3 className="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+        <motion.div
+          className="mt-12 md:mt-16 text-center bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 md:p-12 border border-black/5"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{}}
+        >
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">Need a Custom Solution?</h3>
+          <p className="text-sm md:text-base text-gray-600 mb-6 max-w-2xl mx-auto">
             We can tailor our services to your specific needs. From specialized
             campaigns to unique content requirements, we're here to make your
             vision a reality.
           </p>
-          <button className="bg-[#FF0000] text-white px-8 py-3 rounded-lg hover:bg-[#cc0000] transition-colors font-medium">
+          <motion.button
+            className="bg-[#FF0000] text-white px-6 md:px-8 py-3 rounded-lg hover:bg-[#cc0000] transition-colors font-medium"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Discuss Your Project →
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );
