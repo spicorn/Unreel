@@ -161,9 +161,9 @@ export const MobileNavMenu = ({ children, className, isOpen, onClose }) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="fixed right-4 top-4 z-1100 rounded-xl bg-primaryLinear p-2.5 hover:bg-teal-500/30"
+              className="fixed right-4 top-4 z-1100 rounded-xl bg-red-500 p-2.5 hover:bg-red-600/10"
             >
-              <IconX className="h-6 w-6 text-teal-700" />
+              <IconX className="h-6 w-6 text-white" />
             </button>
 
             {/* Header */}
@@ -218,12 +218,12 @@ export const MobileNavToggle = ({ isOpen, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="rounded-xl bg-teal-500/20 p-2.5 hover:bg-teal-500/30"
+      className="rounded-xl bg-red-500 p-2.5 hover:bg-red-600/30"
     >
       {isOpen ? (
-        <IconX className="h-6 w-6 text-teal-700" />
+        <IconX className="h-6 w-6 text-white" />
       ) : (
-        <IconMenu2 className="h-6 w-6 text-teal-700" />
+        <IconMenu2 className="h-6 w-6 text-white" />
       )}
     </button>
   );
