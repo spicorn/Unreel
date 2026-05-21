@@ -1,6 +1,6 @@
 import { ArrowRight, Play } from "lucide-react";
 import { LightRays } from "../layout/Lightrays";
-import Antigravity from "../layout/Antigravity";
+import SplashCursor from "../layout/SplashCursor";
 import { Button } from "../layout/MovingBorder";
 import ShinyText from "../layout/ShinyText";
 import { motion } from "motion/react";
@@ -41,22 +41,17 @@ export function Hero() {
       className="relative min-h-screen flex items-center pt-16 bg-linear-to-br from-white via-gray-50 to-white"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Antigravity
-          count={300}
-          magnetRadius={6}
-          ringRadius={7}
-          waveSpeed={0.4}
-          waveAmplitude={1}
-          particleSize={1.5}
-          lerpSpeed={0.05}
-          color="rgba(255, 0, 0, 1)"
-          autoAnimate
-          particleVariance={1}
-          rotationSpeed={0}
-          depthFactor={1}
-          pulseSpeed={3}
-          particleShape="capsule"
-          fieldStrength={10}
+        <SplashCursor
+          DENSITY_DISSIPATION={3.5}
+          VELOCITY_DISSIPATION={2}
+          PRESSURE={0.1}
+          CURL={3}
+          SPLAT_RADIUS={0.2}
+          SPLAT_FORCE={6000}
+          COLOR_UPDATE_SPEED={10}
+          SHADING
+          RAINBOW_MODE={false}
+          COLOR="#fc5555"
         />
       </div>
 
