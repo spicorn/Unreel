@@ -6,8 +6,15 @@ import {
   Video as VideoIcon,
   Globe,
   Palette,
+  X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import SPUR from "../assets/SPUR.mp4";
+import Vickers from "../assets/Vickers.mp4";
+import scents from "../assets/scents.mp4";
+import golf from "../assets/golf.mp4";
+import golfday from "../assets/golfday.jpg";
+import spurday from "../assets/spurday.jpg";
 
 const portfolioItems = [
   {
@@ -23,28 +30,83 @@ const portfolioItems = [
   },
   {
     id: 2,
-    title: "Corporate Event Coverage",
+    title: "SPUR Greenfield Harare",
     category: "video",
     type: "Videography",
-    image:
-      "https://images.unsplash.com/photo-1515634928627-2a4e0dae3ddf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+    image: spurday,
     description:
       "Full event documentation with highlight reels and testimonials",
     icon: VideoIcon,
+    videoUrl: SPUR,
   },
   {
     id: 3,
-    title: "E-Commerce Platform",
+    title: "Chema",
     category: "websites",
     type: "Web Development",
     image:
-      "https://images.unsplash.com/photo-1487338875411-8880f74114a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-    description:
-      "Responsive online store with advanced features and SEO optimization",
+      "https://ik.imagekit.io/qvdv4r3lk/Screenshot%202026-02-20%20103549.png?updatedAt=1771576794569",
+    description: "Corporate website for a modern construction company",
     icon: Globe,
+    link: "https://chema.muzukuru.com",
   },
   {
     id: 4,
+    title: "First Mutual",
+    category: "websites",
+    type: "Website",
+    image:
+      "https://ik.imagekit.io/qvdv4r3lk/firstmutual.png?updatedAt=1771244165884",
+    description: "Financial services website with a clean user experience",
+    icon: Globe,
+    link: "https://first-mutual.muzukuru.com/",
+  },
+  {
+    id: 5,
+    title: "Vakani Bricks",
+    category: "websites",
+    type: "Website",
+    image:
+      "https://ik.imagekit.io/qvdv4r3lk/vakani.png?updatedAt=1715932037555",
+    description: "Promotional landing page for a brick manufacturing brand",
+    icon: Globe,
+    link: "https://spicorn.github.io/Vakani/",
+  },
+  {
+    id: 6,
+    title: "Associated Foods Zimbabwe",
+    category: "websites",
+    type: "Website",
+    image: "https://ik.imagekit.io/qvdv4r3lk/afz.png?updatedAt=1715932037352",
+    description:
+      "Food distribution website featuring product catalog and contact information",
+    icon: Globe,
+    link: "https://spicorn.github.io/Associated-Foods-ZImbabwe/",
+  },
+  {
+    id: 7,
+    title: "Tob Energy",
+    category: "websites",
+    type: "Website",
+    image: "https://ik.imagekit.io/qvdv4r3lk/tob.png",
+    description:
+      "Energy company website with service highlights and market presence",
+    icon: Globe,
+    link: "https://www.tobenergy.co.zw/",
+  },
+  {
+    id: 8,
+    title: "Instant Homes",
+    category: "websites",
+    type: "Website",
+    image: "https://ik.imagekit.io/wuvzopkfi/homes.png?updatedAt=1751534434332",
+    description:
+      "Real estate site showcasing property projects and modern home designs",
+    icon: Globe,
+    link: "https://spicorn.github.io/instanthomes/",
+  },
+  {
+    id: 9,
     title: "Product Photography Series",
     category: "photography",
     type: "Photography",
@@ -54,8 +116,8 @@ const portfolioItems = [
     icon: Camera,
   },
   {
-    id: 5,
-    title: "Social Media Campaign",
+    id: 10,
+    title: "Mr and Mrs Vickers",
     category: "video",
     type: "Video Content",
     image:
@@ -63,9 +125,10 @@ const portfolioItems = [
     description:
       "30-day content series with short-form videos and drone footage",
     icon: VideoIcon,
+    videoUrl: Vickers,
   },
   {
-    id: 6,
+    id: 11,
     title: "Real Estate Portfolio",
     category: "photography",
     type: "Photography + Drone",
@@ -74,18 +137,9 @@ const portfolioItems = [
     description: "Aerial and ground photography for luxury property listings",
     icon: Camera,
   },
+
   {
-    id: 7,
-    title: "Restaurant Website Redesign",
-    category: "websites",
-    type: "Web Design",
-    image:
-      "https://images.unsplash.com/photo-1487523117656-d5d117ad47c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-    description: "Modern website with online ordering and reservation system",
-    icon: Globe,
-  },
-  {
-    id: 8,
+    id: 12,
     title: "Fitness Brand Campaign",
     category: "branding",
     type: "Brand + Content",
@@ -94,6 +148,29 @@ const portfolioItems = [
     description: "Complete rebrand with photo and video content production",
     icon: Palette,
   },
+  {
+    id: 13,
+    title: "Heavenly Scents",
+    category: "video",
+    type: "Video Content",
+    image:
+      "https://images.unsplash.com/photo-1625690303837-654c9666d2d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+    description:
+      "30-day content series with short-form videos and drone footage",
+    icon: VideoIcon,
+    videoUrl: scents,
+  },
+  {
+    id: 14,
+    title: "Golf Day",
+    category: "video",
+    type: "Video Content",
+    image: golfday,
+    description:
+      "30-day content series with short-form videos and drone footage",
+    icon: VideoIcon,
+    videoUrl: golf,
+  },
 ];
 
 const categories = [
@@ -101,11 +178,12 @@ const categories = [
   { id: "video", label: "Video" },
   { id: "photography", label: "Photography" },
   { id: "websites", label: "Websites" },
-  { id: "branding", label: "Branding" },
+  // { id: "branding", label: "Branding" },
 ];
 
 export function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const filteredItems =
     activeCategory === "all"
@@ -143,8 +221,13 @@ export function Portfolio() {
           transition={{ duration: 0.6 }}
           viewport={{ margin: "-100px" }}
         >
-          <motion.div className="inline-block px-4 py-1.5 bg-[#FF0000]/10 rounded-full mb-4" whileHover={{ scale: 1.05 }}>
-            <span className="text-[#FF0000] text-xs md:text-sm font-medium">Our Work</span>
+          <motion.div
+            className="inline-block px-4 py-1.5 bg-[#FF0000]/10 rounded-full mb-4"
+            whileHover={{ scale: 1.05 }}
+          >
+            <span className="text-[#FF0000] text-xs md:text-sm font-medium">
+              Our Work
+            </span>
           </motion.div>
           <motion.h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
@@ -202,22 +285,35 @@ export function Portfolio() {
             animate="visible"
             exit={{ opacity: 0 }}
           >
-            {filteredItems.map((item, idx) => (
+            {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
                 className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-2xl transition-all duration-500"
                 variants={itemVariants}
                 whileHover={{ y: -8 }}
               >
-                {/* Image */}
-                <div className="relative h-48 md:h-64 overflow-hidden">
-                  <motion.img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.7 }}
-                  />
+                {/* Image/Cover */}
+                <div
+                  className="relative h-48 md:h-64 overflow-hidden"
+                  style={
+                    item.category === "video"
+                      ? {
+                          backgroundImage: `url(${item.image})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
+                      : {}
+                  }
+                >
+                  {item.category !== "video" && (
+                    <motion.img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.7 }}
+                    />
+                  )}
                   <motion.div
                     className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"
                     initial={{ opacity: 0.6 }}
@@ -232,15 +328,27 @@ export function Portfolio() {
                     transition={{ duration: 0.3 }}
                   >
                     {item.category === "video" ? (
-                      <motion.div
-                        className="w-16 h-16 bg-[#FF0000] rounded-full flex items-center justify-center"
+                      <motion.button
+                        onClick={() => setSelectedVideo(item)}
+                        className="w-16 h-16 bg-[#FF0000] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#FF0000]/90 transition-colors"
                         whileHover={{ scale: 1.1 }}
+                        type="button"
                       >
                         <Play
                           className="w-8 h-8 text-white ml-1"
                           fill="white"
                         />
-                      </motion.div>
+                      </motion.button>
+                    ) : item.link ? (
+                      <motion.a
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-16 h-16 bg-[#FF0000] rounded-full flex items-center justify-center hover:bg-[#FF0000]/90 transition-colors"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <ExternalLink className="w-8 h-8 text-white" />
+                      </motion.a>
                     ) : (
                       <motion.div
                         className="w-16 h-16 bg-[#FF0000] rounded-full flex items-center justify-center"
@@ -289,7 +397,7 @@ export function Portfolio() {
           </motion.div>
         </AnimatePresence>
 
-        {/* View More CTA */}
+        {/* View More CTA
         <motion.div
           className="mt-12 md:mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -307,8 +415,44 @@ export function Portfolio() {
           >
             View Full Portfolio →
           </motion.button>
-        </motion.div>
+        </motion.div> */}
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              className="relative w-full max-w-4xl aspect-video"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 text-white hover:text-[#FF0000] transition-colors"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <iframe
+                src={selectedVideo.videoUrl}
+                title={selectedVideo.title}
+                className="w-full h-full rounded-lg"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
