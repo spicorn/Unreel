@@ -1,5 +1,7 @@
 import { Target, Users, Award, Zap } from "lucide-react";
 import Cheers from "../assets/Cheers.mp4";
+import { Badge } from "lucide-react";
+import ShinyText from "../layout/ShinyText";
 import { motion } from "motion/react";
 
 const values = [
@@ -62,7 +64,10 @@ export function About() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ margin: "-100px" }}
           >
-            <motion.div className="relative rounded-2xl overflow-hidden shadow-2xl" whileHover={{ scale: 1.02 }}>
+            <motion.div
+              className="relative rounded-2xl overflow-hidden shadow-2xl"
+              whileHover={{ scale: 1.02 }}
+            >
               <video
                 src={Cheers}
                 autoPlay
@@ -89,9 +94,14 @@ export function About() {
                     key={idx}
                     className="bg-white/10 backdrop-blur-md rounded-lg p-3 md:p-4 text-white"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    }}
                   >
-                    <div className="text-xl md:text-2xl font-bold">{stat.value}</div>
+                    <div className="text-xl md:text-2xl font-bold">
+                      {stat.value}
+                    </div>
                     <div className="text-xs md:text-sm">{stat.label}</div>
                   </motion.div>
                 ))}
@@ -132,11 +142,14 @@ export function About() {
             >
               One Team, Complete Solutions
             </motion.h2>
-            <motion.div className="space-y-4 text-sm md:text-base text-gray-600" variants={containerVariants}>
+            <motion.div
+              className="space-y-4 text-sm md:text-base text-gray-600"
+              variants={containerVariants}
+            >
               {[
                 "UNREEL MEDIA is your single supplier for creative, technical, and strategic marketing. We bring together specialists in content creation, web development, and marketing strategy to deliver end-to-end campaigns that convert.",
                 "Our mission is simple: save you time, increase your leads, improve brand perception, and provide measurable ROI. We work primarily with startups and SMEs who want predictable monthly spend and exceptional value.",
-                "From photography and videography to website design and SEO, we handle everything so you can focus on what you do best—running your business.",
+                "From photography and videography to website design and SEO, we handle everything so you can focus on what you do best running your business.",
               ].map((text, idx) => (
                 <motion.p key={idx} variants={itemVariants}>
                   {text}
@@ -159,8 +172,23 @@ export function About() {
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
                 >
-                  <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
-                  <span className="text-xs md:text-sm font-medium">{badge}</span>
+                  {/* <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div> */}
+                  <Badge />
+                  <span className="text-xs md:text-sm font-medium">
+                    {/* {badge} */}
+                    <ShinyText
+                      text={badge}
+                      speed={2}
+                      delay={0}
+                      color="#000000"
+                      shineColor="#ffffff"
+                      spread={120}
+                      direction="left"
+                      yoyo={false}
+                      pauseOnHover={false}
+                      disabled={false}
+                    />
+                  </span>
                 </motion.div>
               ))}
             </motion.div>
@@ -188,38 +216,15 @@ export function About() {
               >
                 <value.icon className="w-6 h-6 text-[#FF0000]" />
               </motion.div>
-              <h3 className="font-bold mb-2 text-sm md:text-base">{value.title}</h3>
-              <p className="text-xs md:text-sm text-gray-600">{value.description}</p>
+              <h3 className="font-bold mb-2 text-sm md:text-base">
+                {value.title}
+              </h3>
+              <p className="text-xs md:text-sm text-gray-600">
+                {value.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Team Section */}
-        {/* <div className="mt-20 bg-black rounded-2xl p-8 md:p-12 text-white">
-          <div className="max-w-3xl">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Meet Our Team
-            </h3>
-            <p className="text-gray-300 mb-8">
-              Our diverse team brings together creative minds, technical experts, and strategic thinkers.
-              Each member specializes in their craft, ensuring you get the best talent for every aspect of your project.
-            </p>
-            <div className="grid sm:grid-cols-3 gap-6">
-              <div>
-                <div className="text-[#FF0000] font-semibold">Creative Lead</div>
-                <div className="text-sm text-gray-400">Content & Production</div>
-              </div>
-              <div>
-                <div className="text-[#FF0000] font-semibold">Web & Tech Lead</div>
-                <div className="text-sm text-gray-400">Development & SEO</div>
-              </div>
-              <div>
-                <div className="text-[#FF0000] font-semibold">Marketing Strategist</div>
-                <div className="text-sm text-gray-400">Strategy & Analytics</div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );
