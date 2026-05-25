@@ -1,5 +1,6 @@
 import { Podcast } from "lucide-react";
 import { motion } from "motion/react";
+import { FaFacebook, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -51,7 +52,10 @@ export function Footer() {
         >
           {/* Brand */}
           <motion.div className="md:col-span-1" variants={itemVariants}>
-            <motion.div className="flex items-center gap-2 mb-4" whileHover={{ scale: 1.05 }}>
+            <motion.div
+              className="flex items-center gap-2 mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
               <span className="font-bold text-lg md:text-xl">UN</span>
               <div className="w-0.5 h-6 bg-[#FF0000]"></div>
               <span className="font-bold text-lg md:text-xl">REEL</span>
@@ -59,25 +63,28 @@ export function Footer() {
             <p className="text-gray-400 text-xs md:text-sm mb-4">
               Unreal stories with real impact
             </p>
-            <div className="flex gap-3">
-              {[0, 1, 2, 3].map((idx) => (
-                <motion.a
-                  key={idx}
-                  href="#"
-                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF0000] transition-colors"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Podcast className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </div>
+
+            <motion.div
+              className="flex gap-4 text-2xl "
+              whileHover={{ scale: 1.2, rotate: 1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaFacebook />
+              <FaInstagram />
+              <FaWhatsapp />
+              <FaTiktok />
+            </motion.div>
           </motion.div>
 
           {/* Services */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold mb-4 text-sm md:text-base">Services</h4>
-            <motion.ul className="space-y-2 text-xs md:text-sm text-gray-400" variants={containerVariants}>
+            <h4 className="font-semibold mb-4 text-sm md:text-base">
+              Services
+            </h4>
+            <motion.ul
+              className="space-y-2 text-xs md:text-sm text-gray-400"
+              variants={containerVariants}
+            >
               {[
                 { label: "Brand Identity", href: "#services" },
                 { label: "Photography", href: "#services" },
@@ -100,7 +107,10 @@ export function Footer() {
           {/* Company */}
           <motion.div variants={itemVariants}>
             <h4 className="font-semibold mb-4 text-sm md:text-base">Company</h4>
-            <motion.ul className="space-y-2 text-xs md:text-sm text-gray-400" variants={containerVariants}>
+            <motion.ul
+              className="space-y-2 text-xs md:text-sm text-gray-400"
+              variants={containerVariants}
+            >
               {[
                 { label: "About Us", href: "#about" },
                 { label: "Pricing", href: "#pricing" },
@@ -122,7 +132,9 @@ export function Footer() {
 
           {/* Newsletter */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold mb-4 text-sm md:text-base">Stay Updated</h4>
+            <h4 className="font-semibold mb-4 text-sm md:text-base">
+              Stay Updated
+            </h4>
             <p className="text-xs md:text-sm text-gray-400 mb-4">
               Get marketing tips and creative insights delivered to your inbox.
             </p>
@@ -153,7 +165,10 @@ export function Footer() {
           viewport={{ once: true }}
         >
           <div>© {currentYear} UNREEL MEDIA. All rights reserved.</div>
-          <motion.div className="flex gap-4 md:gap-6" variants={containerVariants}>
+          <motion.div
+            className="flex gap-4 md:gap-6"
+            variants={containerVariants}
+          >
             {[
               { label: "Privacy Policy", href: "#" },
               { label: "Terms of Service", href: "#" },
