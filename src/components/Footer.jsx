@@ -1,4 +1,3 @@
-import { Podcast } from "lucide-react";
 import { motion } from "motion/react";
 import { FaFacebook, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 
@@ -115,7 +114,6 @@ export function Footer() {
                 { label: "About Us", href: "#about" },
                 { label: "Pricing", href: "#pricing" },
                 { label: "Portfolio", href: "#portfolio" },
-                { label: "Case Studies", href: "#" },
                 { label: "Contact", href: "#contact" },
               ].map((company, idx) => (
                 <motion.li key={idx} variants={linkVariants}>
